@@ -16,7 +16,7 @@ module.exports = {
         maxTransactionsPerSender: process.env.CORE_TRANSACTION_POOL_MAX_PER_SENDER || 300,
         allowedSenders: [],
         dynamicFees: {
-            enabled: true,
+            enabled: false,
             minFeePool: 3000,
             minFeeBroadcast: 3000,
             addonBytes: {
@@ -28,27 +28,27 @@ module.exports = {
                 ipfs: 250,
                 timelockTransfer: 500,
                 multiPayment: 500,
-                delegateResignation: 100,
+                delegateResignation: 400000,
             },
         },
     },
     "@arkecosystem/core-p2p": {
         server: {
-            port: process.env.CORE_P2P_PORT || 4001,
+            port: process.env.CORE_P2P_PORT || 4102,
         },
     },
     "@arkecosystem/core-blockchain": {},
     "@arkecosystem/core-api": {
         enabled: !process.env.CORE_API_DISABLED,
         host: process.env.CORE_API_HOST || "0.0.0.0",
-        port: process.env.CORE_API_PORT || 4003,
+        port: process.env.CORE_API_PORT || 4103,
     },
     "@arkecosystem/core-wallet-api": {},
     "@arkecosystem/core-webhooks": {
         enabled: process.env.CORE_WEBHOOKS_ENABLED,
         server: {
             host: process.env.CORE_WEBHOOKS_HOST || "0.0.0.0",
-            port: process.env.CORE_WEBHOOKS_PORT || 4004,
+            port: process.env.CORE_WEBHOOKS_PORT || 4104,
             whitelist: ["127.0.0.1", "::ffff:127.0.0.1"],
         },
     },
